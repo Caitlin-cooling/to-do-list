@@ -18,6 +18,12 @@
           this.state = {
             toDoCreated: false
           };
+          this.handleClick = this.handleClick.bind(this);
+        }
+
+        handleClick(e) {
+          e.preventDefault();
+          this.setState({toDoCreated: true})
         }
 
         render() {
@@ -26,6 +32,7 @@
             element = <form>
                 <Label/>
                 <Information/>
+                <input type="submit" value="Create" onClick={this.handleClick}/>
               </form>
           } else {
             element = <div>To do has been created</div>
@@ -44,7 +51,6 @@
           <Title/>
           <DueTime/>
           <Description/>
-          <SubmitButton/>
           </div>
       }
 
@@ -59,16 +65,6 @@
       var DueTime = function () {
         return <p><input type="text" placeholder="Time Due"/></p>
       }
-
-      var SubmitButton = function() {
-        function handleClick(e) {
-          e.preventDefault();
-          console.log('To do has been created!')
-        }
-        return <input type="submit" value="Create" onClick={handleClick}/>
-      }
-
-
 
       ReactDOM.render(
       <App/>,
