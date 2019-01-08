@@ -46,8 +46,15 @@
       }
 
       var SubmitButton = function() {
-        return <input type="submit" value="Create"/>
+        function handleClick(e) {
+          e.preventDefault();
+          console.log('To do has been created!')
+        }
+        return <input type="submit" value="Create" onClick={handleClick}/>
+
       }
+
+
 
       ReactDOM.render(
       <App/>,
