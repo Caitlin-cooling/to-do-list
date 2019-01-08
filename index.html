@@ -11,13 +11,24 @@
     <h1>To Do List</h1>
     <div id="app">React has not rendered yet</div>
     <script type="text/babel">
-      var App = function() {
-        return <div>
-          <form>
-            <Label/>
-            <Information/>
-          </form>
-        </div>
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            toDoCreated: false
+          };
+        }
+
+        render() {
+          return ( <div>
+            <form>
+              <Label/>
+              <Information/>
+            </form>
+          </div>
+          );
+        }
       }
 
       var Label = function() {
@@ -51,7 +62,6 @@
           console.log('To do has been created!')
         }
         return <input type="submit" value="Create" onClick={handleClick}/>
-
       }
 
 
