@@ -21,13 +21,17 @@
         }
 
         render() {
-          return ( <div>
-            <form>
-              <Label/>
-              <Information/>
-            </form>
-          </div>
-          );
+          let element;
+          if(this.state.toDoCreated === false) {
+            element = <form>
+                <Label/>
+                <Information/>
+              </form>
+          } else {
+            element = <div>To do has been created</div>
+          }
+
+          return (<div>{element}</div>);
         }
       }
 
