@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>To Do List</title>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <div id="app">React has not rendered yet</div>
+    <script type="text/babel">
+      var App = function() {
+        return <div>
+          <form>
+            <Label/>
+            <Information/>
+          </form>
+        </div>
+      }
+
+      var Label = function() {
+        return <label>Add a new to do:</label>
+      }
+
+      var Information = function() {
+        return <div>
+          <Title/>
+          <DueTime/>
+          <Description/>
+          <SubmitButton/>
+          </div>
+      }
+
+      var Title = function() {
+        return <p><input type="text" placeholder="Title"/></p>
+      }
+
+      var Description = function() {
+        return <p><textarea placeholder="Description" rows="8" cols="80"></textarea></p>
+      }
+
+      var DueTime = function () {
+        return <p><input type="text" placeholder="Time Due"/></p>
+      }
+
+      var SubmitButton = function() {
+        return <input type="submit" value="Create"/>
+      }
+
+      ReactDOM.render(
+      <App/>,
+      document.getElementById('app'))
+    </script>
+  </body>
+</html>
