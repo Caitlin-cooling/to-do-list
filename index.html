@@ -44,7 +44,6 @@
           todos = <ul>{listItems}</ul>
           element = <div>{form}{todos}</div>
 
-
           return (<div>{element}</div>);
         }
       }
@@ -55,18 +54,13 @@
 
       var Information = function() {
         return <div>
-          <Title/>
-          <DueTime/>
-          <Description/>
+            <Title/>
+            <DueTime/>
           </div>
       }
 
       var Title = function() {
         return <p><input type="text" placeholder="Title"/></p>
-      }
-
-      var Description = function() {
-        return <p><textarea placeholder="Description" rows="8" cols="80"></textarea></p>
       }
 
       var DueTime = function () {
