@@ -16,27 +16,38 @@
         constructor(props) {
           super(props);
           this.state = {
-            toDoCreated: false
+            toDoCreated: false,
+            list: ['Your todos']
           };
           this.handleClick = this.handleClick.bind(this);
         }
 
         handleClick(e) {
           e.preventDefault();
+
+          var newList = this.state.list.slice();
+          newList.push("hello");
+          this.setState({list:newList})
+          console.log(newList)
+
           this.setState({toDoCreated: true})
         }
 
         render() {
+          let form;
+          let todos;
           let element;
-          if(this.state.toDoCreated === false) {
-            element = <form>
-                <Label/>
-                <Information/>
-                <input type="submit" value="Create" onClick={this.handleClick}/>
-              </form>
-          } else {
-            element = <div>To do has been created</div>
-          }
+          let listItems;
+          form = <form>
+                  <Label/>
+                  <Information/>
+                  <input type="submit" value="Create" onClick={this.handleClick}/>
+                </form>
+
+          listItems = this.state.list.map(todo => <li>{todo}</li>)
+          todos = <ul>{listItems}</ul>
+          element = <div>{form}{todos}</div>
+
 
           return (<div>{element}</div>);
         }
