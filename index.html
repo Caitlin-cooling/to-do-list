@@ -63,12 +63,24 @@
         constructor(props) {
           super(props);
           this.state = {
-            title: ""
+            value: ""
           }
+          this.handleTitleChange = this.handleTitleChange.bind(this);
+        }
+
+        handleTitleChange(e) {
+          this.setState({title:event.target.value})
         }
 
         render() {
-          return (<p><input type="text" placeholder="Title" value={this.state.title}/></p>)
+          return (
+            <p><input
+              type="text"
+              placeholder="Title"
+              value={this.state.value}
+              onChange={this.handleTitleChange}
+              /></p>
+          )
         }
       }
 
