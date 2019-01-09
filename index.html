@@ -16,8 +16,7 @@
         constructor(props) {
           super(props);
           this.state = {
-            toDoCreated: false,
-            list: ['Your todos']
+            list: []
           };
           this.handleClick = this.handleClick.bind(this);
         }
@@ -28,9 +27,6 @@
           var newList = this.state.list.slice();
           newList.push("hello");
           this.setState({list:newList})
-          console.log(newList)
-
-          this.setState({toDoCreated: true})
         }
 
         render() {
