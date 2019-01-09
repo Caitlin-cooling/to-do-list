@@ -59,8 +59,17 @@
           </div>
       }
 
-      var Title = function() {
-        return <p><input type="text" placeholder="Title"/></p>
+      class Title extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            title: ""
+          }
+        }
+
+        render() {
+          return (<p><input type="text" placeholder="Title" value={this.state.title}/></p>)
+        }
       }
 
       var DueTime = function () {
