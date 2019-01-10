@@ -1,97 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
-    <meta charset="utf-8">
-    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <meta charset="UTF-8" />
     <title>To Do List</title>
   </head>
   <body>
     <h1>To Do List</h1>
     <div id="app">React has not rendered yet</div>
-    <script type="text/babel">
-
-      class App extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-            list: []
-          };
-          this.handleClick = this.handleClick.bind(this);
-        }
-
-        handleClick(e) {
-          e.preventDefault();
-
-          var newList = this.state.list.slice();
-          newList.push("hello");
-          this.setState({list:newList})
-        }
-
-        render() {
-          let form;
-          let todos;
-          let element;
-          let listItems;
-
-          listItems = this.state.list.map((todo, i) => <li key={'todo-' + i}>{todo}</li>)
-          todos = <ul>{listItems}</ul>
-
-          form = <form>
-                  <Label/>
-                  <Information/>
-                  <input type="submit" value="Create" onClick={this.handleClick}/>
-                </form>
-
-          element = <div>{todos}{form}</div>
-          return (<div>{element}</div>);
-        }
-      }
-
-      var Label = function() {
-        return <label>Add a new to do:</label>
-      }
-
-      var Information = function() {
-        return <div>
-            <Title/>
-            <DueTime/>
-          </div>
-      }
-
-      class Title extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-            value: ""
-          }
-          this.handleTitleChange = this.handleTitleChange.bind(this);
-        }
-
-        handleTitleChange(e) {
-          this.setState({title:event.target.value})
-        }
-
-        render() {
-          return (
-            <p><input
-              type="text"
-              placeholder="Title"
-              value={this.state.value}
-              onChange={this.handleTitleChange}
-              /></p>
-          )
-        }
-      }
-
-      var DueTime = function () {
-        return <p><input type="text" placeholder="Time Due"/></p>
-      }
-
-      ReactDOM.render(
-      <App/>,
-      document.getElementById('app'))
-    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="index.js"></script>
   </body>
 </html>
