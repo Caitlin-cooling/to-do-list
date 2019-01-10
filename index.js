@@ -16,7 +16,7 @@ var App = function (_React$Component) {
 
     _this.state = {
       list: [],
-      value: ""
+      title: ""
     };
     _this.handleClick = _this.handleClick.bind(_this);
     _this.handleTitleChange = _this.handleTitleChange.bind(_this);
@@ -29,13 +29,13 @@ var App = function (_React$Component) {
       e.preventDefault();
 
       var newList = this.state.list.slice();
-      newList.push("hello");
+      newList.push(this.state.title);
       this.setState({ list: newList });
     }
   }, {
     key: "handleTitleChange",
     value: function handleTitleChange(e) {
-      this.setState({ value: event.target.value });
+      this.setState({ title: event.target.value });
     }
   }, {
     key: "render",
