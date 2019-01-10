@@ -15,9 +15,11 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      list: []
+      list: [],
+      value: ""
     };
     _this.handleClick = _this.handleClick.bind(_this);
+    _this.handleTitleChange = _this.handleTitleChange.bind(_this);
     return _this;
   }
 
@@ -29,6 +31,11 @@ var App = function (_React$Component) {
       var newList = this.state.list.slice();
       newList.push("hello");
       this.setState({ list: newList });
+    }
+  }, {
+    key: "handleTitleChange",
+    value: function handleTitleChange(e) {
+      this.setState({ value: event.target.value });
     }
   }, {
     key: "render",
@@ -55,10 +62,9 @@ var App = function (_React$Component) {
         "form",
         null,
         React.createElement(Label, null),
-        React.createElement(Information, null),
+        React.createElement(Information, { title: this.state.title, handleTitleChange: this.handleTitleChange }),
         React.createElement("input", { type: "submit", value: "Create", onClick: this.handleClick })
       );
-
       element = React.createElement(
         "div",
         null,
@@ -84,11 +90,11 @@ var Label = function Label() {
   );
 };
 
-var Information = function Information() {
+var Information = function Information(props) {
   return React.createElement(
     "div",
     null,
-    React.createElement(Title, null),
+    React.createElement(Title, { title: props.title, handleTitleChange: props.handleTitleChange }),
     React.createElement(DueTime, null)
   );
 };
@@ -101,19 +107,11 @@ var Title = function (_React$Component2) {
 
     var _this2 = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props));
 
-    _this2.state = {
-      value: ""
-    };
-    _this2.handleTitleChange = _this2.handleTitleChange.bind(_this2);
+    _this2.state = {};
     return _this2;
   }
 
   _createClass(Title, [{
-    key: "handleTitleChange",
-    value: function handleTitleChange(e) {
-      this.setState({ title: event.target.value });
-    }
-  }, {
     key: "render",
     value: function render() {
       return React.createElement(
@@ -122,8 +120,8 @@ var Title = function (_React$Component2) {
         React.createElement("input", {
           type: "text",
           placeholder: "Title",
-          value: this.state.value,
-          onChange: this.handleTitleChange
+          value: this.props.title,
+          onChange: this.props.handleTitleChange
         })
       );
     }
