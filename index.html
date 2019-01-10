@@ -34,16 +34,17 @@
           let todos;
           let element;
           let listItems;
+
+          listItems = this.state.list.map((todo, i) => <li key={'todo-' + i}>{todo}</li>)
+          todos = <ul>{listItems}</ul>
+
           form = <form>
                   <Label/>
                   <Information/>
                   <input type="submit" value="Create" onClick={this.handleClick}/>
                 </form>
 
-          listItems = this.state.list.map((todo, i) => <li key={'todo-' + i}>{todo}</li>)
-          todos = <ul>{listItems}</ul>
-          element = <div>{form}{todos}</div>
-
+          element = <div>{todos}{form}</div>
           return (<div>{element}</div>);
         }
       }
