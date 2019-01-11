@@ -1,6 +1,6 @@
 # To Do List App
 
-This is a basic to do list app built using react. A user can currently create a to do and a confirmation message is rendered when they do so.
+This is a basic to do list app built using react. A user can currently create a to do and it is then rendered on the page with all of the others that have been created.
 
 Please note that this is spiked as it is a learning exercise in React. I plan to complete this again fully test driven.
 
@@ -20,3 +20,4 @@ Serve is used as the HTTP server, please ensure that you have this installed usi
 ### Known Issues
 * I would like to be able to move the rendering of the submit input along with the handleClick event handler to its' own component
 * I would like to be able to move rendering of all to dos out of the app component
+* I would like to store the to dos in local storage so that they are accessible after the session has ended 
