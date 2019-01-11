@@ -16,16 +16,19 @@ var App = function (_React$Component) {
 
     _this.state = {
       list: [],
-      title: ""
+      title: "",
+      date: ""
     };
     _this.handleClick = _this.handleClick.bind(_this);
     _this.handleTitleChange = _this.handleTitleChange.bind(_this);
+    _this.handleDateChange = _this.handleDateChange.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
     key: "handleClick",
     value: function handleClick(e) {
+      console.log(this.state.date);
       e.preventDefault();
 
       var newList = this.state.list.slice();
@@ -36,6 +39,11 @@ var App = function (_React$Component) {
     key: "handleTitleChange",
     value: function handleTitleChange(e) {
       this.setState({ title: event.target.value });
+    }
+  }, {
+    key: "handleDateChange",
+    value: function handleDateChange(e) {
+      this.setState({ date: event.target.value });
     }
   }, {
     key: "render",
@@ -62,7 +70,12 @@ var App = function (_React$Component) {
         "form",
         null,
         React.createElement(Label, null),
-        React.createElement(Information, { title: this.state.title, handleTitleChange: this.handleTitleChange }),
+        React.createElement(Information, {
+          title: this.state.title,
+          handleTitleChange: this.handleTitleChange,
+          date: this.state.date,
+          handleDateChange: this.handleDateChange
+        }),
         React.createElement("input", { type: "submit", value: "Create", onClick: this.handleClick })
       );
       element = React.createElement(
@@ -95,46 +108,32 @@ var Information = function Information(props) {
     "div",
     null,
     React.createElement(Title, { title: props.title, handleTitleChange: props.handleTitleChange }),
-    React.createElement(DueTime, null)
+    React.createElement(DueTime, { time: props.time, handleDateChange: props.handleDateChange })
   );
 };
 
-var Title = function (_React$Component2) {
-  _inherits(Title, _React$Component2);
-
-  function Title(props) {
-    _classCallCheck(this, Title);
-
-    var _this2 = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props));
-
-    _this2.state = {};
-    return _this2;
-  }
-
-  _createClass(Title, [{
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "p",
-        null,
-        React.createElement("input", {
-          type: "text",
-          placeholder: "Title",
-          value: this.props.title,
-          onChange: this.props.handleTitleChange
-        })
-      );
-    }
-  }]);
-
-  return Title;
-}(React.Component);
-
-var DueTime = function DueTime() {
+var Title = function Title(props) {
   return React.createElement(
     "p",
     null,
-    React.createElement("input", { type: "text", placeholder: "Time Due" })
+    React.createElement("input", {
+      type: "text",
+      placeholder: "Title",
+      value: props.title,
+      onChange: props.handleTitleChange })
+  );
+};
+
+var DueTime = function DueTime(props) {
+  return React.createElement(
+    "p",
+    null,
+    React.createElement("input", {
+      type: "text",
+      placeholder: "Time Due",
+      value: props.date,
+      onChange: props.handleDateChange
+    })
   );
 };
 
